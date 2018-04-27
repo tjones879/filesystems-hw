@@ -221,7 +221,6 @@ int main(int argc, char *argv[])
 
             header.contents.resize(header.getRealFileSize());
             read(inf, &header.contents[0], header.getRealFileSize());
-            std::cout.write(&header.contents[0], header.getRealFileSize());
             lseek(inf, header.getPaddedFileSize() - header.getRealFileSize(), SEEK_CUR);
             entries.emplace_back(header.filename, header, nullptr, counter++);
         }
